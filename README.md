@@ -1,7 +1,7 @@
-[![](https://data.jsdelivr.com/v1/package/npm/@joaopaulo.vieira/clappr-tvs-key-mapping-plugin/badge)](https://www.jsdelivr.com/package/npm/@joaopaulo.vieira/clappr-tvs-key-mapping-plugin)
-[![](https://img.shields.io/npm/v/@joaopaulo.vieira/clappr-tvs-key-mapping-plugin.svg?style=flat-square)](https://npmjs.org/package/@joaopaulo.vieira/clappr-tvs-key-mapping-plugin)
-[![](https://img.shields.io/npm/dt/@joaopaulo.vieira/clappr-tvs-key-mapping-plugin.svg?style=flat-square)](https://npmjs.org/package/@joaopaulo.vieira/clappr-tvs-key-mapping-plugin)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/@joaopaulo.vieira/clappr-tvs-key-mapping-plugin?style=flat-square)](https://bundlephobia.com/result?p=@joaopaulo.vieira/clappr-tvs-key-mapping-plugin)
+[![](https://data.jsdelivr.com/v1/package/npm/@clappr/clappr-tvs-key-mapping-plugin/badge)](https://www.jsdelivr.com/package/npm/@clappr/clappr-tvs-key-mapping-plugin)
+[![](https://img.shields.io/npm/v/@clappr/clappr-tvs-key-mapping-plugin.svg?style=flat-square)](https://npmjs.org/package/@clappr/clappr-tvs-key-mapping-plugin)
+[![](https://img.shields.io/npm/dt/@clappr/clappr-tvs-key-mapping-plugin.svg?style=flat-square)](https://npmjs.org/package/@clappr/clappr-tvs-key-mapping-plugin)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/@clappr/clappr-tvs-key-mapping-plugin?style=flat-square)](https://bundlephobia.com/result?p=@clappr/clappr-tvs-key-mapping-plugin)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 ![Travis (.com)](https://img.shields.io/travis/com/joaopaulovieira/clappr-tvs-key-mapping-plugin?style=flat-square)
 ![Coveralls github](https://img.shields.io/coveralls/github/joaopaulovieira/clappr-tvs-key-mapping-plugin?style=flat-square)
@@ -10,11 +10,11 @@
 <h1 align=center>Clappr TVs key mapping plugin</h1>
 
 ## Table of Contents
-- [Features](https://github.com/joaopaulovieira/clappr-tvs-key-mapping-plugin#Features)
-- [Usage](https://github.com/joaopaulovieira/clappr-tvs-key-mapping-plugin#Usage)
-- [Configuration](https://github.com/joaopaulovieira/clappr-tvs-key-mapping-plugin#Configuration)
-- [API Documentation](https://github.com/joaopaulovieira/clappr-tvs-key-mapping-plugin#API-Documentation)
-- [Development](https://github.com/joaopaulovieira/clappr-tvs-key-mapping-plugin#Development)
+- [Features](https://github.com/clappr/clappr-tvs-key-mapping-plugin#Features)
+- [Usage](https://github.com/clappr/clappr-tvs-key-mapping-plugin#Usage)
+- [Configuration](https://github.com/clappr/clappr-tvs-key-mapping-plugin#Configuration)
+- [API Documentation](https://github.com/clappr/clappr-tvs-key-mapping-plugin#API-Documentation)
+- [Development](https://github.com/clappr/clappr-tvs-key-mapping-plugin#Development)
 
 ## Features
 ### :mage: One plugin to rule them all (remote controls)
@@ -30,18 +30,18 @@ Enable/disable log dynamically to check the key code and key name of each remote
 ## Usage
 You can use it from JSDelivr:
 ```
-https://cdn.jsdelivr.net/npm/@joaopaulo.vieira/clappr-tvs-key-mapping-plugin@latest/dist/clappr-tvs-key-mapping-plugin.min.js
+https://cdn.jsdelivr.net/npm/@clappr/clappr-tvs-key-mapping-plugin@latest/dist/clappr-tvs-key-mapping-plugin.min.js
 ```
 or as an npm package:
 ```properties
 # Using yarn
-yarn add @joaopaulo.vieira/clappr-tvs-key-mapping-plugin
+yarn add @clappr/clappr-tvs-key-mapping-plugin
 
 # Using npm
-npm i @joaopaulo.vieira/clappr-tvs-key-mapping-plugin
+npm i @clappr/clappr-tvs-key-mapping-plugin
 ```
 
-Then just add the `Watcher` into the list of plugins of your player instance and set the device name to watch on [tvsKeyMapping.deviceToMap](https://github.com/joaopaulovieira/clappr-tvs-key-mapping-plugin#devicetomap-string) config:
+Then just add the `Watcher` into the list of plugins of your player instance and set the device name to watch on [tvsKeyMapping.deviceToMap](https://github.com/clappr/clappr-tvs-key-mapping-plugin#devicetomap-string) config:
 ```javascript
 var player = new Clappr.Player({
   source: 'http://your.video/here.mp4',

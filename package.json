@@ -1,5 +1,5 @@
 {
-  "name": "@joaopaulo.vieira/clappr-tvs-key-mapping-plugin",
+  "name": "@clappr/clappr-tvs-key-mapping-plugin",
   "version": "1.1.2",
   "description": "Maps smart TVs remote control keys to a common pattern for Clappr.",
   "keywords": [
@@ -10,10 +10,9 @@
     "observer",
     "watcher"
   ],
-  "homepage": "https://github.com/joaopaulovieira/clappr-tvs-key-mapping-plugin",
+  "homepage": "https://github.com/clappr/clappr-tvs-key-mapping-plugin",
   "bugs": {
-    "url": "https://github.com/joaopaulovieira/clappr-tvs-key-mapping-plugin/issues",
-    "email": "vieira.joaopaulo.91@gmail.com"
+    "url": "https://github.com/clappr/clappr-tvs-key-mapping-plugin/issues",
   },
   "license": "BSD-3-Clause",
   "author": {
@@ -28,7 +27,7 @@
   "module": "dist/clappr-tvs-key-mapping-plugin.esm.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:joaopaulovieira/clappr-tvs-key-mapping-plugin.git"
+    "url": "git@github.com:clappr/clappr-tvs-key-mapping-plugin.git"
   },
   "scripts": {
     "bundle-check": "ANALYZE_BUNDLE=true rollup --config",
