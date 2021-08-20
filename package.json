@@ -1,6 +1,6 @@
 {
   "name": "@clappr/clappr-tvs-key-mapping-plugin",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Maps smart TVs remote control keys to a common pattern for Clappr.",
   "keywords": [
     "clappr",
