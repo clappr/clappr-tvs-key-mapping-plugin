@@ -13,19 +13,11 @@
 - [Features](https://github.com/clappr/clappr-tvs-key-mapping-plugin#Features)
 - [Usage](https://github.com/clappr/clappr-tvs-key-mapping-plugin#Usage)
 - [Configuration](https://github.com/clappr/clappr-tvs-key-mapping-plugin#Configuration)
-- [API Documentation](https://github.com/clappr/clappr-tvs-key-mapping-plugin#API-Documentation)
 - [Development](https://github.com/clappr/clappr-tvs-key-mapping-plugin#Development)
 
 ## Features
 ### :mage: One plugin to rule them all (remote controls)
 Most smart TV platforms implement their own key code for their remote controls. With this plugin, you can guarantee that the wanted action for one button is consistent through all mapped devices.
-
-### :clapper: Clappr events FTW!
-When the key of the mapped device is pressed, the plugin triggers one Clappr event with the key name on `core`(`CORE_SMART_TV_KEY_PRESSED`) and `container`(`CONTAINER_SMART_TV_KEY_PRESSED`) scope. This flow allows you to listen to one of those events and do what you want based on the returned key name.
-
-### :mag: `console.log` for the rescue
-Enable/disable log dynamically to check the key code and key name of each remote control key (and find out if the key is not mapped too!). The log uses `Clappr.Log` feature and is printed on the `INFO` level.
-
 
 ## Usage
 You can use it from JSDelivr:
@@ -41,13 +33,34 @@ yarn add @clappr/clappr-tvs-key-mapping-plugin
 npm i @clappr/clappr-tvs-key-mapping-plugin
 ```
 
-Then just add the `Watcher` into the list of plugins of your player instance and set the device name to watch on [tvsKeyMapping.deviceToMap](https://github.com/clappr/clappr-tvs-key-mapping-plugin#devicetomap-string) config:
+Then just add the `TVsKeyMappingPlugin` into the list of plugins of your player instance and set the device name on [tvsKeyMapping.deviceToMap](https://github.com/clappr/clappr-tvs-key-mapping-plugin#devicetomap-string) config:
 ```javascript
 var player = new Clappr.Player({
   source: 'http://your.video/here.mp4',
-  plugins: [TVsKeyMappingPlugin.Watcher],
+  plugins: [TVsKeyMappingPlugin],
   tvsKeyMapping: { deviceToMap: 'browser' },
 });
+
+
+// Inside your UI{Core, Container}Plugin
+get events() {
+  return {
+    keydown: 'onKeyDown'
+  }
+}
+
+onKeyDown(event) {
+  // Browser.Keys.* will have the appropriate keyCode for the desired device
+  switch(event.keyCode) {
+  case Clappr.Browser.Keys.VK_ENTER:
+    handleEnter()
+    break
+  case Clappr.Browser.Keys.VK_PLAY:
+    handlePlay()
+    break
+  //...
+  }
+}
 ```
 
 ## Configuration
@@ -55,7 +68,7 @@ The options for the plugin go in the `tvsKeyMapping` property as shown below:
 ```javascript
 var player = new Clappr.Player({
   source: 'http://your.video/here.mp4',
-  plugins: [TVsKeyMappingPlugin.Watcher],
+  plugins: [TVsKeyMappingPlugin],
   tvsKeyMapping: {
     deviceToMap: 'browser',
   },
@@ -63,25 +76,15 @@ var player = new Clappr.Player({
 ```
 
 ### `deviceToMap {String}`
-This config is mandatory for the plugin. The name needs to be one of the currently mapped devices. The current mapped devices names are below:
+Device to map the keyCodes from. The device name needs to be one on the listed below. If none is provided, `browser` is assumed as the default.
 
 | Name | Device |
 |------|--------|
-| `browser` | This option is for test the plugin on a desktop device in any web browser. |
+|`browser` | This option is for testing the plugin on a desktop web browser. |
 |`samsung_tizen`| Samsung smart TVs with Tizen OS (>= 2015 launch year). |
 |`samsung_orsay`| Samsung smart TVs with Orsay OS (<= 2014 launch year). |
 |`lg_webos`| LG smart TVs with WebOS (>= 2014 launch year). |
 |`panasonic`| Panasonic smart TVs. |
-
-## API Documentation
-
-### Plugin API
-| method | arguments | description |
-|--------|:---------:|-------------|
-| `plugin.start` | `device` | Adds a listener for remote control `keydown` events of the mapped device to send the key name on the Clappr events. |
-| `plugin.stop` | | Removes listener for remote control `keydown` events. |
-| `plugin.enableLog` |  | Adds a listener for remote control `keydown` events of the mapped device to log remote control key data. |
-| `plugin.disableLog` |  | Removes listener for remote control `keydown` events that logging remote control key data. |
 
 ## Development
 Install dependencies: `npm install`

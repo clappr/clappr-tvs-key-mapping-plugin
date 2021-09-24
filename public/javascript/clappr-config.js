@@ -1,17 +1,26 @@
 /* eslint-disable */
 Clappr.Log.setLevel(Clappr.Log.LEVEL_INFO)
 
-var onReadyCallback = function() {
+function onReadyCallback() {
   var _hideTimeout;
 
-  this.core.listenTo(this.core, Clappr.Events.Custom.CORE_SMART_TV_KEY_PRESSED, function(_, data) {
-    Clappr.Log.info('keyName', data.keyName);
+  document.addEventListener('keydown', function(event) {
     clearTimeout(_hideTimeout);
-    document.querySelector('.snackbar').innerText = 'The key pressed has the code ' + data.keyEvent.keyCode + ' and is mapped to the "' + data.keyName + '" value.';
+    document.querySelector('.snackbar').innerText = 'The key pressed has the code ' + event.keyCode + ' and value ' + getKeyName(event.keyCode);
     document.querySelector('.snackbar').className += ' show';
     _hideTimeout = setTimeout(function() { document.querySelector('.snackbar').className = 'snackbar' }, 3000);
   });
 };
+
+function getKeyName(keyCode) {
+  var keys = Clappr.Browser.Keys
+  for (var keyName in keys) {
+    if (keys[keyName] === keyCode) {
+      return keyName
+    }
+  }
+  return 'UNKNOWN'
+}
 
 var searchParams;
 window.URLSearchParams && (searchParams = new window.URLSearchParams(window.location.search));
@@ -22,7 +31,7 @@ var player = new Clappr.Player({
   width: searchParams && searchParams.get('width') || '640px',
   tvsKeyMapping: { deviceToMap: searchParams && searchParams.get('deviceToMap') || 'browser' },
   playback: { controls: true },
-  plugins: [window.TVsKeyMappingPlugin.Watcher],
+  plugins: [window.TVsKeyMappingPlugin],
   events: { onReady: onReadyCallback },
 });
 

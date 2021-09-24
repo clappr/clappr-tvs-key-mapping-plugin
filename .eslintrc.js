@@ -2,7 +2,7 @@ module.exports = {
   env: { browser: true, node: true, jest: true },
   globals: { Clappr: true, $: true },
   extends: ['eslint:recommended'],
-  parserOptions: { sourceType: 'module', ecmaVersion: 2018 },
+  parserOptions: { sourceType: 'module', ecmaVersion: 2020 },
   rules: {
     // Possible Errors
     'getter-return': ['error', { allowImplicit: true }], // overrides eslint:recommended

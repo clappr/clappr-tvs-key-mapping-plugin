@@ -25,7 +25,7 @@ const plugins = [
 ]
 
 const mainBundle = {
-  input: 'src/main.js',
+  input: 'src/tv_keymapping_plugin.js',
   external: ['@clappr/core'],
   output: [
     {
@@ -46,7 +46,7 @@ const mainBundle = {
 }
 
 const esmBundle = {
-  input: 'src/main.js',
+  input: 'src/tv_keymapping_plugin.js',
   external: ['@clappr/core', /@babel\/runtime/],
   output: {
     name: 'TVsKeyMappingPlugin',
